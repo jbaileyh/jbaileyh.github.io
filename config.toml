@@ -43,7 +43,7 @@ weight = 4
   googleAnalyticsAsync = true # use asynchronous tracking. Synchronous tracking by default
 
   # Home page settings
-  description = "Hello! My name is Joseph Bailey. I'm a Data Scientist currently managing a team of Data Scientists and Engineers at the BBC. I love exploring data, data visualisation, programming and helping others to get joy from the same things. My favorite languages are R and Python. Much of my programming interest is geared toward geospatial visualisation and spatial-algorithms. I also have a passion for learning more about leadership in techincal roles."
+  description = "Hello! My name is Joseph Bailey. I'm a Data Scientist currently managing a team of Data Scientists and Engineers at the BBC. I love exploring data, data visualisation, programming and helping others to get joy from the same things. My favorite languages are R and Python. Much of my programming interest is geared toward geospatial visualisation and spatial-algorithms. I also have a passion for learning more about leadership in techincal roles and generative art."
   mainSection = "posts" # your main section
   showAllPostsOnHomePage = false # default
   postsOnHomePage = 10 # this option will be ignored if showAllPostsOnHomePage is set to true
