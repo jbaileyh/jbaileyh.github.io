@@ -8,7 +8,7 @@ categories:
 tags:
   - r
   - generative
-draft: yes
+draft: no
 ---
 
 There's a lot of great work being done in the R community that enables us to create generative art and in the last 18 months or so, the amount of code available has exploded. With thanks to individuals such as:
