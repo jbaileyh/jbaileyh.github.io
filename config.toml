@@ -30,11 +30,6 @@ name = "About"
 url = "/about"
 weight = 4
 
-[[menu.main]]
-name = "Projects"
-url = "/projects"
-weight = 5
-
 [markup]
   [markup.tableOfContents]
     endLevel = 4
