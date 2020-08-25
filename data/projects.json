@@ -1,0 +1,9 @@
+{
+  "list": [
+    {
+      "name":"Geogrid",
+      "url":"https://github.com/jbaileyh/geogrid",
+      "desc":"Turn geospatial polygons like states, counties or local authorities into regular or hexagonal grids automatically."
+    }
+  ]
+}
