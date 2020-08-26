@@ -28,6 +28,6 @@ Here's a few examples of different parameterisations with different colour palet
 
 ![Image2](3.png)
 
-![Image1](4.png)
+![Image3](4.png)
 
 
