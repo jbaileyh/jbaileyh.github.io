@@ -1,0 +1,64 @@
+---
+title: "About"
+toc: false
+image: assets/svg/illustrations/notebook.svg
+about:
+  template: trestles
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/jbaileyh
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jbaileyh/
+---
+
+## Hello!
+
+My name is **Joseph Bailey**. I'm a Data Scientist currently managing a team of Data Scientists
+and Engineers at the BBC. I work at the intersection of [AI]{.mark-lime}, data and people. I love
+exploring data, data visualisation, programming and helping others to get joy from the same things.
+My favourite languages are R and Python.
+
+Much of my programming interest is geared toward geospatial visualisation and spatial algorithms.
+I also have a passion for learning more about leadership in technical roles and generative art.
+
+This blog is where I think out loud: experiments with models, analysis in Python and R, maps,
+creative coding, and lessons from leading teams. Newer posts are Quarto notebooks, so the code you
+see is the code that made the charts.
+
+Outside of this domain, I also like adventure racing and triathlons.
+
+## What you'll find here
+
+- **AI**: models, evaluations and what actually works in production.
+- **Data**: analysis, visualisation, geospatial work and conference notes.
+- **Art**: generative pieces, ray-traced maps and creative coding.
+- **Leadership**: notes on teams, decisions and growing people.
+- **Other**: everything that doesn't fit neatly.
+
+## Background
+
+I have worked at:
+
+- BBC (current)
+- Connected Places Catapult, formerly Future Cities Catapult
+- Simon Fraser University
+- Geotrace
+- Apple
+
+## Projects
+
+- [**Geogrid**](https://github.com/jbaileyh/geogrid): turn geospatial polygons like states, counties or local authorities into regular or hexagonal grids automatically.
+
+## Papers & presentations
+
+I have presented at a range of professional and academic conferences, mostly on the use of data
+in environmental science, urban science and transport modelling.
+
+## Get in touch
+
+The fastest way is [LinkedIn](https://www.linkedin.com/in/jbaileyh/). My code lives on
+[GitHub](https://github.com/jbaileyh).

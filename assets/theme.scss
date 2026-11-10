@@ -1,0 +1,406 @@
+/*-- scss:defaults --*/
+// ---------------------------------------------------------------------------
+// StellarGrok theme (Optimizely-inspired). Layered on top of Bootswatch "cosmo".
+// Change the brand by editing the palette below.
+// ---------------------------------------------------------------------------
+
+// Palette
+$lime:        #abff44;
+$leaf:        #3ab533;
+$forest-950:  #061c14;
+$forest-900:  #08251a;
+$forest-800:  #0d3a29;
+$forest-700:  #114b36;
+$forest-500:  #197050;
+$sage-50:     #eff6e9;
+$sage-100:    #e4f0da;
+$sage-200:    #d8e4cb;
+$sage-300:    #c3ceaf;
+$sage-500:    #717863;
+$mint-50:     #d4f6f4;
+$mint-200:    #91dbda;
+$teal-700:    #007b79;
+$pink-100:    #ffdde7;
+$pink-300:    #ff99b6;
+$pink-700:    #8f4764;
+
+// Bootstrap / Quarto variables
+$body-bg:               #ffffff;
+$body-color:            $forest-900;
+$primary:               $forest-500;
+$secondary:             $sage-500;
+$success:               $leaf;
+$info:                  $teal-700;
+$link-color:            $forest-500;
+$link-hover-color:      $forest-900;
+
+$font-family-sans-serif: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+$font-family-monospace:  "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+$headings-font-family:   "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+$headings-font-weight:   800;
+$headings-line-height:   1;
+$font-size-root:         18px;
+$line-height-base:       1.65;
+
+$border-radius:          12px;
+$border-radius-sm:       8px;
+$border-radius-lg:       24px;
+$border-color:           rgba($forest-900, .12);
+
+$navbar-bg:              rgba(#ffffff, .92);
+$navbar-fg:              $forest-900;
+$navbar-hl:              $forest-500;
+$footer-bg:              $forest-900;
+$footer-fg:              $sage-100;
+
+$code-color:             $forest-700;
+$code-bg:                $sage-100;
+$code-block-bg:          $sage-50;
+$code-block-border-left: $lime;
+
+$callout-color-note:      $teal-700;
+$callout-color-tip:       $leaf;
+$callout-color-important: $pink-700;
+
+$toc-color:              $sage-500;
+$toc-active-border:      $lime;
+
+// Mermaid diagrams
+$mermaid-font-family:    "Hanken Grotesk", sans-serif;
+$mermaid-bg-color:       $sage-50;
+$mermaid-edge-color:     $forest-500;
+$mermaid-node-fg-color:  $forest-900;
+$mermaid-fg-color:       $forest-900;
+$mermaid-fg-color--lighter: $forest-700;
+$mermaid-fg-color--lightest: $sage-200;
+$mermaid-label-bg-color: #ffffff;
+$mermaid-label-fg-color: $forest-900;
+
+/*-- scss:rules --*/
+
+// ---- Typography ----------------------------------------------------------
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .title, .quarto-title .title, .listing-title, .card-title {
+  font-stretch: 75%;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+h1, .title { font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: .95; }
+h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-top: 2.2rem; border-bottom: 0 !important; }
+h3 { font-size: clamp(1.4rem, 2.4vw, 1.75rem); }
+::selection { background: $lime; color: $forest-900; }
+a { text-underline-offset: .18em; text-decoration-thickness: 1px; }
+
+main.content p a:not(.btn), main.content li a:not(.btn) {
+  text-decoration: none;
+  background: linear-gradient(transparent 62%, rgba($lime, .75) 0);
+  color: $forest-700;
+  &:hover { background: $lime; }
+}
+
+.overline, .listing-date, .listing-reading-time, .quarto-title-meta-heading {
+  font-family: $font-family-monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .72rem !important;
+}
+
+// ---- Signature effects ---------------------------------------------------
+.extrude {
+  --d: .012em;
+  color: $lime;
+  -webkit-text-stroke: .03em $forest-900;
+  paint-order: stroke fill;
+  text-shadow:
+    calc(var(--d)*1) calc(var(--d)*1) 0 #3ab533,
+    calc(var(--d)*2) calc(var(--d)*2) 0 #40a142,
+    calc(var(--d)*3) calc(var(--d)*3) 0 #2e8c45,
+    calc(var(--d)*4) calc(var(--d)*4) 0 #227d47,
+    calc(var(--d)*5) calc(var(--d)*5) 0 #166e49,
+    calc(var(--d)*6) calc(var(--d)*6) 0 #116344,
+    calc(var(--d)*7) calc(var(--d)*7) 0 #0d593e,
+    calc(var(--d)*8) calc(var(--d)*8) 0 $forest-900,
+    calc(var(--d)*9) calc(var(--d)*9) 0 $forest-900;
+}
+.display { font-family: "Anton", Impact, sans-serif; font-weight: 400; line-height: .9; letter-spacing: -.01em; }
+.mark-lime { background: linear-gradient(transparent 55%, $lime 55%, $lime 92%, transparent 92%); padding-inline: .08em; }
+
+// ---- Navbar --------------------------------------------------------------
+.navbar {
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($forest-900, .08);
+  .navbar-brand, .navbar-title {
+    font-family: $headings-font-family; font-weight: 800; font-stretch: 75%;
+    font-size: 1.6rem; letter-spacing: -.02em; color: $forest-900 !important;
+  }
+  .nav-link { font-weight: 500; border-radius: 8px; padding-inline: .8rem !important; }
+  .nav-link:hover, .nav-link.active { background: $sage-100; }
+  .dropdown-menu { border-radius: 16px; border: 1px solid $border-color; padding: .4rem; box-shadow: 0 16px 32px -16px rgba($forest-900, .35); }
+  .dropdown-item { border-radius: 10px; font-weight: 500; }
+  .dropdown-item:hover { background: $lime; color: $forest-900; }
+}
+
+// ---- Buttons -------------------------------------------------------------
+.btn { font-weight: 500; letter-spacing: .02em; border-radius: 16px; padding: .65em 1.25em; transition: transform .18s, box-shadow .18s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 $forest-900; }
+.btn-lime { background: $lime; color: $forest-900; border: 0; }
+.btn-lime:hover { background: $lime; color: $forest-900; }
+.btn-forest { background: $forest-900; color: $sage-50; border: 0; }
+.btn-forest:hover { background: $forest-900; color: $lime; box-shadow: 4px 4px 0 $lime; }
+
+// ---- Hero (home + section pages) ----------------------------------------
+.fn-hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  margin: 0 0 3rem; padding: clamp(3.5rem, 8vw, 6rem) 1.5rem;
+  border-radius: 32px; text-align: center;
+  background: linear-gradient(180deg, #8fb7c9 0%, #c6a7bf 40%, #f1b7a6 66%, #f6d1b4 76%, #5e8fab 77%, #3d6e8a 100%);
+  h1 { font-size: clamp(3.5rem, 11vw, 8.5rem); margin: 0; line-height: .9; }
+  p.lead { max-width: 32ch; margin: 1.5rem auto 2rem; font-weight: 500; color: $forest-900; }
+  .deco { position: absolute; z-index: -1; pointer-events: none; }
+}
+.fn-hero--forest { background: radial-gradient(120% 80% at 50% 0%, $forest-700, $forest-900 60%, $forest-950); color: $sage-50; p.lead { color: $sage-100; } }
+.fn-hero--mint   { background: linear-gradient(180deg, $mint-50, #a9e6e5); }
+.fn-hero--pink   { background: linear-gradient(180deg, #fff0f4, $pink-100); }
+.fn-hero--sage   { background: $sage-50; }
+.fn-hero--lime   { background: linear-gradient(180deg, #f4ffe4, #d9ffad); }
+.fn-hero .eyebrow { display: inline-block; margin-bottom: 1rem; padding: .3em .9em; border-radius: 999px; background: rgba(#fff, .7); font: 500 .85rem/1.2 $font-family-sans-serif; }
+
+// ---- Section tiles on the home page --------------------------------------
+.fn-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 0 0 3.5rem; }
+.fn-tile {
+  display: grid; grid-template-rows: 120px auto auto; gap: .35rem;
+  padding: .5rem .5rem 1rem; border-radius: 24px; background: $sage-50;
+  text-decoration: none !important; color: $forest-900 !important;
+  transition: transform .18s, box-shadow .18s;
+  &:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -12px rgba($forest-900, .3); }
+  .art { border-radius: 18px; display: grid; place-items: center; }
+  .art img { width: 92px; height: 92px; }
+  strong { font: 800 1.5rem/1 $headings-font-family; font-stretch: 75%; padding: .4rem .6rem 0; }
+  span { font-size: .85rem; color: $sage-500; padding: 0 .6rem; line-height: 1.35; }
+}
+.bg-mint { background: $mint-50; } .bg-pink { background: $pink-100; } .bg-lime { background: #e3ffbf; } .bg-sage { background: $sage-200; } .bg-cream { background: #fff3d6; }
+
+// ---- Listings (grid cards) ----------------------------------------------
+.quarto-listing { margin-top: 1rem; }
+.quarto-grid-item.card {
+  border: 0; border-radius: 24px; background: $sage-50; padding: 8px; overflow: hidden;
+  transition: transform .18s, box-shadow .18s;
+  &:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -12px rgba($forest-900, .3); }
+  .card-img-top, .listing-item-img-placeholder { border-radius: 18px; object-fit: contain; background: #fff; padding: 1.25rem; }
+  .card-body { padding: 1rem .75rem .5rem; }
+  .card-title { font-size: 1.55rem; line-height: 1.02; margin-bottom: .5rem; }
+  .card-text { color: $forest-900; }
+  .card-other-values, .card-footer { background: transparent; border: 0; padding-inline: .75rem; }
+  .listing-categories .listing-category { border-radius: 999px; border: 0; background: $sage-200; color: $forest-900; font-size: .7rem; padding: .25em .7em; }
+}
+.quarto-listing-category .category { border-radius: 999px; }
+.quarto-listing-category .category.active { background: $lime; color: $forest-900; }
+.quarto-listing-category-title { font-family: $headings-font-family; font-weight: 800; font-stretch: 75%; font-size: 1.4rem; }
+.quarto-post .thumbnail img { border-radius: 16px; background: $sage-50; padding: .5rem; }
+.quarto-listing-default .quarto-post { border-radius: 20px; padding: 1rem; &:hover { background: $sage-50; } }
+
+// ---- Post title block ----------------------------------------------------
+#title-block-header.quarto-title-block.default .quarto-title-meta-heading { color: $sage-500; }
+.quarto-title .quarto-categories .quarto-category {
+  border: 0; border-radius: 999px; background: $lime; color: $forest-900; font-weight: 500; opacity: 1; padding: .3em .8em;
+}
+.quarto-title .subtitle { font-size: 1.25rem; font-weight: 500; color: $forest-700; }
+
+// ---- Article bits --------------------------------------------------------
+div.sourceCode, pre.sourceCode { border-radius: 16px !important; }
+.cell-output-display img, figure img { border-radius: 16px; max-width: 100%; height: auto; }
+.callout { border-radius: 16px !important; border-left-width: 6px !important; }
+blockquote.blockquote, main blockquote {
+  border-left: 0; margin: 2.5rem 0; padding: 2rem 2rem; border-radius: 24px;
+  background: $forest-900; color: $lime;
+  font: 800 clamp(1.5rem, 3vw, 2.1rem)/1.1 $headings-font-family; font-stretch: 75%; letter-spacing: -.01em; text-align: center; text-wrap: balance;
+  p:last-child { margin-bottom: 0; }
+}
+.cell-output-display .mermaid, pre.mermaid-js { background: transparent; }
+.quarto-figure-center > figure { text-align: center; }
+
+// ---- Footer --------------------------------------------------------------
+.nav-footer { border-radius: 32px 32px 0 0; padding-block: 2rem; a { color: $sage-100 !important; } a:hover { color: $lime !important; } }
+
+// ---- Small screens -------------------------------------------------------
+@media (max-width: 576px) { .fn-hero { border-radius: 24px; padding-inline: 1rem; } .fn-hero .deco:not(.deco-keep) { display: none; } .fn-hero p.lead { font-size: 1.05rem; } .fn-sections { grid-template-columns: 1fr 1fr; } }
+
+// ---- Mini-blog extras ----------------------------------------------------
+.fn-more {
+  margin: 3rem 0 1rem; padding: 1.5rem 1.75rem;
+  border-radius: 24px; background: $sage-50;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+  strong { display: block; font: 800 1.6rem/1.05 $headings-font-family; font-stretch: 75%; margin-top: .25rem; }
+  .fn-more-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+}
+
+
+// Footer social icons
+.nav-footer .nav-footer-right .nav-link, .nav-footer .nav-footer-right a { font-size: 1.25rem; padding-inline: .45rem !important; }
+.nav-footer .nav-footer-center a { font-weight: 500; }
+
+// ---- Mountain hero (home) ------------------------------------------------
+.fn-hero--mountains {
+  padding: clamp(2.25rem, 4vw, 3rem) 1.5rem clamp(6rem, 10vw, 8.5rem);
+  background: linear-gradient(180deg, #8fb7c9 0%, #b7aac6 45%, #f1b7a6 80%, #f6d1b4 100%);
+  h1 { font-size: clamp(3rem, 7.5vw, 5.5rem); }
+  p.lead { max-width: 40ch; }
+  p.lead { margin: 1rem auto 1.5rem; }
+  .fn-range { left: 0; right: 0; bottom: 0; width: 100%; height: clamp(80px, 10vw, 135px); object-fit: cover; object-position: bottom; }
+  .fn-sun { width: clamp(70px, 9vw, 120px); right: 12%; top: 14%; }
+  .btn { position: relative; z-index: 1; }
+}
+
+// ---- Compact headers (half height) --------------------------------------
+.fn-hero {
+  padding: clamp(1.1rem, 2.4vw, 1.75rem) 1.25rem;
+  margin-bottom: 2rem;
+  border-radius: 24px;
+  h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+  p.lead { font-size: clamp(.92rem, 1.3vw, 1.08rem); line-height: 1.45; max-width: 58ch; margin: .45rem auto .8rem; }
+  .eyebrow { margin-bottom: .45rem; font-size: .72rem; padding: .2em .75em; }
+  .btn-lg { font-size: 1rem; padding: .45em 1.05em; border-radius: 12px; }
+}
+.fn-hero--mountains {
+  padding: clamp(1rem, 2vw, 1.4rem) 1.25rem clamp(2.9rem, 4.6vw, 3.7rem);
+  h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); }
+  .fn-range { height: clamp(40px, 4.8vw, 64px); }
+  .fn-sun { width: clamp(36px, 4.5vw, 58px); top: 16%; }
+}
+// section pages: a touch more air so they land at half their old height
+.fn-hero:not(.fn-hero--mountains) { padding-block: clamp(1.5rem, 4.4vw, 3.4rem); }
+// home: lead is the last line now, so keep breathing room above the mountains
+.fn-hero--mountains { padding-top: clamp(2.25rem, 4.2vw, 3.3rem); p.lead { margin-bottom: 0; } }
+@media (max-width: 576px) {
+  .fn-hero p.lead { font-size: .88rem; margin: .35rem auto .65rem; }
+  .fn-hero--mountains p.lead { margin-bottom: 0; }
+}
+
+// ---- Header fine-tuning ---------------------------------------------------
+.fn-hero--mountains {
+  p.lead { max-width: 74ch; text-wrap: balance; }
+  padding-bottom: clamp(3.4rem, 5.6vw, 4.6rem);
+}
+.fn-hero:not(.fn-hero--mountains) {
+  padding-block: clamp(1.25rem, 3vw, 2.3rem);
+  h1 { font-size: clamp(2.6rem, 6.4vw, 4.6rem); }
+}
+@media (max-width: 576px) {
+  .fn-hero--mountains { padding-top: 1.6rem; padding-bottom: 3.6rem; p.lead { font-size: .85rem; } }
+}
+.fn-hero--mountains .fn-range { height: clamp(38px, 4.3vw, 56px); }
+
+// Real artwork / photos fill the card; SVG illustrations stay inset
+.quarto-grid-item.card .card-img-top:has(img:not([src$=".svg"])) { padding: 0; height: 225px !important; flex-shrink: 0; overflow: hidden; background: $sage-100; display: block; }
+.quarto-grid-item.card img.card-img:not([src$=".svg"]) { width: 100%; height: 100% !important; object-fit: cover; border-radius: 18px; display: block; }
+.quarto-post .thumbnail img:not([src$=".svg"]) { object-fit: cover; padding: 0; }
+
+
+// ---- List views (one column) ---------------------------------------------
+// Home section tiles as a compact list
+.fn-sections--list {
+  display: flex; flex-direction: column; gap: .5rem;
+  max-width: 820px; margin: 0 auto 2.5rem;
+  .fn-tile {
+    display: grid; grid-template-columns: 56px 1fr; grid-template-rows: auto auto;
+    column-gap: .9rem; row-gap: 0; align-items: center;
+    padding: .5rem .75rem .5rem .5rem; border-radius: 16px;
+    .art { grid-row: 1 / span 2; width: 56px; height: 56px; border-radius: 12px; }
+    .art img { width: 36px; height: 36px; }
+    strong { font-size: 1.2rem; padding: 0; align-self: end; }
+    span { font-size: .85rem; padding: 0; align-self: start; }
+  }
+  .fn-tile:hover { transform: translateX(4px); }
+}
+
+// Post listings as single-column rows with small thumbnails
+.quarto-listing-default { max-width: 820px; margin-inline: auto; }
+.quarto-listing-default .quarto-post {
+  display: grid !important; grid-template-columns: 112px 1fr auto; gap: 1rem; align-items: start;
+  padding: .75rem; margin-bottom: .5rem; border-radius: 18px; border-bottom: 0 !important;
+  background: $sage-50; transition: background .18s, transform .18s;
+  &:hover { background: $sage-100; transform: translateX(4px); }
+  .thumbnail { grid-column: 1; grid-row: 1; width: 112px !important; margin: 0; }
+  .thumbnail a, .thumbnail p { margin: 0; display: block; }
+  .thumbnail img, .thumbnail .card-img-top, .thumbnail .listing-item-img-placeholder {
+    width: 112px !important; height: 84px !important; object-fit: cover; border-radius: 12px; background: #fff; padding: 0;
+  }
+  .thumbnail img[src$=".svg"] { object-fit: contain; padding: .6rem; }
+  .body { grid-column: 2; grid-row: 1; min-width: 0; }
+  .metadata { grid-column: 3; grid-row: 1; padding: 0; text-align: right; white-space: nowrap; }
+  .listing-title { font-size: 1.3rem; line-height: 1.05; margin: 0 0 .3rem; }
+  .listing-title a { color: $forest-900; text-decoration: none; background: none; }
+  .listing-description { font-size: .9rem; margin: 0 0 .4rem; color: $forest-900;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .listing-categories { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .2rem; }
+  .listing-category { border-radius: 999px; border: 0; background: $sage-200; color: $forest-900; font-size: .65rem; padding: .2em .65em; margin: 0; }
+  .listing-date, .listing-reading-time { display: block; color: $sage-500; }
+}
+@media (max-width: 576px) {
+  .quarto-listing-default .quarto-post {
+    grid-template-columns: 76px 1fr; gap: .75rem;
+    .thumbnail, .thumbnail img, .thumbnail .card-img-top { width: 76px !important; height: 60px !important; }
+    .metadata { grid-column: 2; grid-row: 2; text-align: left; display: flex; gap: .75rem; }
+    .listing-title { font-size: 1.1rem; }
+  }
+}
+.fn-home-heading { max-width: 820px; margin-inline: auto; }
+
+// Home section tiles: original card style, ~25% smaller
+.fn-sections:not(.fn-sections--list) {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .75rem; margin-bottom: 2.75rem;
+  .fn-tile {
+    grid-template-rows: 88px auto 1fr; gap: .25rem; align-content: start;
+    padding: .4rem .4rem .8rem; border-radius: 20px;
+    .art { border-radius: 14px; }
+    .art img { width: 64px; height: 64px; }
+    strong { font-size: 1.25rem; padding: .3rem .5rem 0; }
+    span { font-size: .78rem; padding: 0 .5rem; }
+  }
+}
+
+// Home: latest-posts list spans the same width as the section tiles
+#listing-latest { margin-right: 0 !important; }
+#listing-latest .quarto-listing-default, #listing-latest .list { max-width: none; }
+.fn-home-heading { max-width: none; }
+
+// ---- Tag spacing ----------------------------------------------------------
+// List rows: title, then tags, then summary, each with clear breathing room
+.quarto-listing-default .quarto-post {
+  .listing-title { margin-bottom: .6rem !important; }
+  .listing-categories { gap: .3rem; margin: 0 0 .6rem; }
+  .listing-category {
+    font-size: .58rem !important; line-height: 1; letter-spacing: .05em;
+    padding: .38em .7em !important; border: 0 !important; margin: 0 !important;
+    background: $sage-200; color: $forest-700; opacity: 1;
+  }
+  .listing-description { margin-bottom: 0; }
+}
+// Post pages: tags get their own row between subtitle and summary
+.quarto-title .quarto-categories {
+  display: flex; flex-wrap: wrap; gap: .35rem;
+  margin: 1rem 0 1.1rem !important; padding: 0;
+  .quarto-category {
+    font-size: .6rem !important; line-height: 1; letter-spacing: .05em;
+    padding: .42em .8em !important; margin: 0 !important;
+  }
+}
+.quarto-title .subtitle { margin-top: .6rem; }
+
+// Tighter tracking on list dates and read times
+.quarto-listing .listing-date, .quarto-listing .listing-reading-time { letter-spacing: 0 !important; word-spacing: -.15em; }
+.quarto-title-meta-heading { letter-spacing: 0 !important; word-spacing: -.15em; }
+
+
+// ---- No-image post lists ---------------------------------------------------
+.quarto-listing-default .quarto-post:not(:has(.thumbnail)) {
+  grid-template-columns: 1fr auto; padding: 1rem 1.25rem;
+  .body { grid-column: 1; }
+  .metadata { grid-column: 2; }
+}
+@media (max-width: 576px) {
+  .quarto-listing-default .quarto-post:not(:has(.thumbnail)) {
+    grid-template-columns: 1fr;
+    .metadata { grid-column: 1; grid-row: 2; }
+  }
+}

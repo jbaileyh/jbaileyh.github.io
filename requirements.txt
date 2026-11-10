@@ -1,0 +1,5 @@
+# Python packages used by the posts. Install with:  pip install -r requirements.txt
+jupyter
+matplotlib
+numpy
+pandas

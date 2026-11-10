@@ -1,0 +1,40 @@
+---
+pagetitle: "StellarGrok"
+toc: false
+page-layout: full
+listing:
+  id: latest
+  contents: posts
+  sort: "date desc"
+  type: default
+  max-items: 6
+  fields: [date, title, description, categories, reading-time]
+  feed: false
+---
+
+```{=html}
+<section class="fn-hero fn-hero--mountains">
+  <img class="deco fn-sun" src="assets/svg/decor/starburst-lime.svg" alt="">
+  <img class="deco" src="assets/svg/decor/sparkle.svg" alt="" style="width:clamp(24px,3vw,36px);left:9%;top:18%">
+  <img class="deco deco-keep fn-range" src="assets/svg/decor/mountains.svg" alt="">
+  <h1 class="display extrude">StellarGrok</h1>
+  <p class="lead">Personal notes on Bits, Bytes and Bots</p>
+</section>
+
+<div class="fn-sections">
+  <a class="fn-tile" href="sections/ai.qmd"><div class="art bg-lime"><img src="assets/svg/illustrations/chip.svg" alt=""></div><strong>AI</strong><span>Models, evals and the odd agent</span></a>
+  <a class="fn-tile" href="sections/data.qmd"><div class="art bg-mint"><img src="assets/svg/illustrations/browser.svg" alt=""></div><strong>Data</strong><span>Analysis, charts and pipelines</span></a>
+  <a class="fn-tile" href="sections/art.qmd"><div class="art bg-pink"><img src="assets/svg/illustrations/palette.svg" alt=""></div><strong>Art</strong><span>Generative and creative coding</span></a>
+  <a class="fn-tile" href="sections/leadership.qmd"><div class="art bg-sage"><img src="assets/svg/illustrations/megaphone.svg" alt=""></div><strong>Leadership</strong><span>Teams, decisions and growth</span></a>
+  <a class="fn-tile" href="sections/other.qmd"><div class="art bg-cream"><img src="assets/svg/illustrations/mug.svg" alt=""></div><strong>Other</strong><span>Everything else</span></a>
+</div>
+```
+
+## Latest posts {.fn-home-heading}
+
+::: {#latest}
+:::
+
+::: {.text-center .mt-4}
+[All posts →](blog.qmd){.btn .btn-forest}
+:::

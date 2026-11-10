@@ -1,0 +1,25 @@
+# Quarto
+/.quarto/
+/_site/
+**/*.quarto_ipynb
+# NOTE: _freeze/ is deliberately NOT ignored. Commit it.
+
+# Python
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+renv/library/
+
+# OS / editors
+.DS_Store
+.vscode/
+deploy.json
+
+# Netlify plugin install
+node_modules/
+package-lock.json

@@ -1,0 +1,7 @@
+# Applies to every post under posts/
+author: "Joseph Bailey"
+toc: true
+title-block-banner: false
+code-fold: false
+# Code runs only when you render locally; results are cached in _freeze/
+freeze: auto

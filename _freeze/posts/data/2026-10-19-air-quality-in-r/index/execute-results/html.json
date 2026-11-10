@@ -1,0 +1,17 @@
+{
+  "hash": "031db28e06ffd24d23824e02c6969268",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Reading a summer of air quality in R\"\ndescription: \"A quick tour of R's built-in airquality data with dplyr-free base R and ggplot2, plus a branded theme you can reuse.\"\ndate: 2026-10-19\ncategories: [Data, R, ggplot2]\nimage: ../../../assets/svg/illustrations/browser.svg\n---\n\n\n\nR ships with a dataset of daily air quality readings from New York, May to September 1973.\nIt's small, a bit messy, and a great excuse to show off the blog's ggplot theme.\n\n\n::: {.cell}\n\n```{.r .cell-code}\naq <- airquality\naq$Month <- factor(month.abb[aq$Month], levels = month.abb[5:9])\nknitr::kable(head(aq), caption = \"First six rows\")\n```\n\n::: {.cell-output-display}\n\n\nTable: First six rows\n\n| Ozone| Solar.R| Wind| Temp|Month | Day|\n|-----:|-------:|----:|----:|:-----|---:|\n|    41|     190|  7.4|   67|May   |   1|\n|    36|     118|  8.0|   72|May   |   2|\n|    12|     149| 12.6|   74|May   |   3|\n|    18|     313| 11.5|   62|May   |   4|\n|    NA|      NA| 14.3|   56|May   |   5|\n|    28|      NA| 14.9|   66|May   |   6|\n\n\n:::\n:::\n\n\n## Ozone climbs through the summer\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(aq, aes(Month, Ozone, fill = Month)) +\n  geom_boxplot(width = 0.6, colour = fn_cols[[\"forest\"]], alpha = 0.9, show.legend = FALSE) +\n  scale_fill_StellarGrok() +\n  labs(title = \"Ozone peaks in mid-summer\", x = NULL, y = \"Ozone (ppb)\",\n       caption = \"Source: R datasets::airquality\")\n```\n\n::: {.cell-output-display}\n![Daily ozone by month. July and August run hottest.](index_files/figure-html/fig-ozone-1.png){#fig-ozone width=1008}\n:::\n:::\n\n\n## Temperature explains a lot of it\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(aq, aes(Temp, Ozone)) +\n  geom_point(colour = fn_cols[[\"forest_500\"]], alpha = 0.7, size = 2.4) +\n  geom_smooth(colour = fn_cols[[\"pink\"]], fill = fn_cols[[\"sage_200\"]], linewidth = 1.2) +\n  labs(title = \"Hotter days, more ozone\", x = \"Temperature (°F)\", y = \"Ozone (ppb)\")\n```\n\n::: {.cell-output-display}\n![Ozone against temperature with a loess smoother.](index_files/figure-html/fig-temp-1.png){#fig-temp width=1008}\n:::\n:::\n\n\n::: {.callout-note}\nAbout a quarter of the ozone readings are missing. `ggplot2` drops them quietly, which is\nfine for a sketch but worth handling properly in real work.\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

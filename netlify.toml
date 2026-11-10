@@ -1,16 +1,33 @@
+# Netlify builds this site from the Git repo using the official Quarto plugin.
+# The plugin installs Quarto, then runs `quarto render` during the build step.
+# Code (Python/R) is NOT run on Netlify: results come from _freeze/, which you
+# create by running `quarto render` locally and committing it.
+
 [build]
-  command = "hugo --gc --minify -b $URL"
-  publish = "public"
+  publish = "_site"
+  # The plugin does the rendering. This placeholder overrides any old
+  # build command saved in the Netlify UI (e.g. the previous Hugo one).
+  command = "echo 'Quarto plugin renders the site'"
 
 [build.environment]
-  HUGO_VERSION = "0.55.6"
-  HUGO_ENABLEGITINFO = "true"
+  QUARTO_VERSION = "1.11.9"   # keep in step with the version you use locally
 
-[context.production.environment]
-  HUGO_ENV = "production"
+[[plugins]]
+  package = "@quarto/netlify-plugin-quarto"
 
-[context.deploy-preview]
-  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
 
-[context.branch-deploy]
-  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+[[headers]]
+  for = "/site_libs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,23 @@
+---
+pagetitle: "Art · StellarGrok"
+toc: false
+page-layout: full
+listing:
+  contents: "../posts/art/*/index.qmd"
+  sort: "date desc"
+  type: default
+  fields: [date, title, description, categories, reading-time]
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  page-size: 9
+---
+
+```{=html}
+<section class="fn-hero fn-hero--pink">
+  <img class="deco" src="../assets/svg/illustrations/palette.svg" alt="" style="width:clamp(56px,8vw,96px);right:5%;bottom:14%">
+  <span class="eyebrow">StellarGrok · the Art blog</span>
+  <h1 class="extrude">Art</h1>
+  <p class="lead">Generative pieces, creative coding and visual experiments.</p>
+</section>
+```

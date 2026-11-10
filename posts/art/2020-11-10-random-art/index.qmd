@@ -1,0 +1,33 @@
+---
+title: "Random Art"
+subtitle: "Random generative art"
+description: "A scrapbook of generative experiments with particle simulations and d3-force: dunes, trees, hairballs and falling particles."
+date: 2020-11-10
+categories: [Art, R, generative]
+image: dense_hair.webp
+---
+
+I've recently been creating random bits of generative art. I often forget to save the code and lose the images. This post is simply a placeholder of some of the imagery that's emerged from my explorations.
+
+### Simulation with particles & D3Force
+
+
+Sand dune or Donald Trump?
+
+![Dune](dense_hair.webp)
+
+Trees or Stars?
+
+![Trees](trees.webp)
+
+Where's this?
+
+![Bakewell](bakewell.webp)
+
+Hairball!
+
+![Hair](hairball.webp)
+
+Falling particles or Cousin it?
+
+![Particles](physics.webp)
