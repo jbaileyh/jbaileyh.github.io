@@ -10,7 +10,7 @@
   command = "echo 'Quarto plugin renders the site'"
 
 [build.environment]
-  QUARTO_VERSION = "1.11.9"   # keep in step with the version you use locally
+  QUARTO_VERSION = "v1.11.9"   # keep in step with the version you use locally
 
 [[plugins]]
   package = "@quarto/netlify-plugin-quarto"
