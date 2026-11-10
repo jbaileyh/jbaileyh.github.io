@@ -1,0 +1,52 @@
+---
+title: "Hello, world: how this blog works"
+description: "Quarto notebooks, frozen results, GitHub Actions and Netlify. The whole pipeline in one picture."
+date: 2026-09-01
+categories: [Other, meta, Quarto]
+image: ../../../assets/svg/illustrations/mug.svg
+---
+
+Every post here is a [Quarto](https://quarto.org) document. It can mix prose, Python, R and
+diagrams, and the output you see is generated from the code you see.
+
+## The pipeline
+
+```{mermaid}
+flowchart LR
+  A[Write .qmd] --> B[quarto render<br/>on my laptop]
+  B --> C[(_freeze/<br/>cached results)]
+  C --> D[git push]
+  D --> E[GitHub Actions<br/>quarto render]
+  E --> F[Netlify]
+```
+
+The trick is **freezing**. Code only runs on my machine. The results are saved in `_freeze/`
+and committed, so the build server never needs Python or R installed.
+
+## Python or R, same post format
+
+::: {.panel-tabset}
+## Python
+
+```{.python}
+import pandas as pd
+df = pd.read_csv("data.csv")
+df.groupby("team").size()
+```
+
+## R
+
+```{.r}
+library(dplyr)
+read.csv("data.csv") |> count(team)
+```
+:::
+
+## Writing a new post
+
+```{.bash}
+python scripts/new_post.py data "My next analysis"
+quarto preview
+```
+
+That's it. Thanks for reading!

@@ -1,0 +1,11 @@
+---
+title: "Page not found"
+toc: false
+---
+
+```{=html}
+<div class="text-center" style="padding:3rem 0">
+  <img src="/assets/svg/illustrations/lightbulb.svg" alt="" width="160" style="margin:0 auto 1rem">
+  <p class="lead">That page has wandered off. Try the <a href="/blog.html">blog</a> or the <a href="/">home page</a>.</p>
+</div>
+```

@@ -1,0 +1,53 @@
+---
+title: "Reading a summer of air quality in R"
+description: "A quick tour of R's built-in airquality data with dplyr-free base R and ggplot2, plus a branded theme you can reuse."
+date: 2026-10-19
+categories: [Data, R, ggplot2]
+image: ../../../assets/svg/illustrations/browser.svg
+---
+
+```{r}
+#| include: false
+source("../../../assets/theme_StellarGrok.R")
+library(ggplot2)
+```
+
+R ships with a dataset of daily air quality readings from New York, May to September 1973.
+It's small, a bit messy, and a great excuse to show off the blog's ggplot theme.
+
+```{r}
+aq <- airquality
+aq$Month <- factor(month.abb[aq$Month], levels = month.abb[5:9])
+knitr::kable(head(aq), caption = "First six rows")
+```
+
+## Ozone climbs through the summer
+
+```{r}
+#| label: fig-ozone
+#| fig-cap: "Daily ozone by month. July and August run hottest."
+#| warning: false
+ggplot(aq, aes(Month, Ozone, fill = Month)) +
+  geom_boxplot(width = 0.6, colour = fn_cols[["forest"]], alpha = 0.9, show.legend = FALSE) +
+  scale_fill_StellarGrok() +
+  labs(title = "Ozone peaks in mid-summer", x = NULL, y = "Ozone (ppb)",
+       caption = "Source: R datasets::airquality")
+```
+
+## Temperature explains a lot of it
+
+```{r}
+#| label: fig-temp
+#| fig-cap: "Ozone against temperature with a loess smoother."
+#| warning: false
+#| message: false
+ggplot(aq, aes(Temp, Ozone)) +
+  geom_point(colour = fn_cols[["forest_500"]], alpha = 0.7, size = 2.4) +
+  geom_smooth(colour = fn_cols[["pink"]], fill = fn_cols[["sage_200"]], linewidth = 1.2) +
+  labs(title = "Hotter days, more ozone", x = "Temperature (°F)", y = "Ozone (ppb)")
+```
+
+::: {.callout-note}
+About a quarter of the ozone readings are missing. `ggplot2` drops them quietly, which is
+fine for a sketch but worth handling properly in real work.
+:::

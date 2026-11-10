@@ -1,0 +1,23 @@
+---
+pagetitle: "AI · StellarGrok"
+toc: false
+page-layout: full
+listing:
+  contents: "../posts/ai/*/index.qmd"
+  sort: "date desc"
+  type: default
+  fields: [date, title, description, categories, reading-time]
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  page-size: 9
+---
+
+```{=html}
+<section class="fn-hero fn-hero--lime">
+  <img class="deco" src="../assets/svg/illustrations/chip.svg" alt="" style="width:clamp(56px,8vw,96px);right:5%;bottom:14%">
+  <span class="eyebrow">StellarGrok · the AI blog</span>
+  <h1 class="extrude">AI</h1>
+  <p class="lead">Models, evaluations, prompts and the occasional agent.</p>
+</section>
+```

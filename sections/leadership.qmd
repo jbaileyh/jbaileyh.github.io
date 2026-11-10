@@ -1,0 +1,23 @@
+---
+pagetitle: "Leadership · StellarGrok"
+toc: false
+page-layout: full
+listing:
+  contents: "../posts/leadership/*/index.qmd"
+  sort: "date desc"
+  type: default
+  fields: [date, title, description, categories, reading-time]
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  page-size: 9
+---
+
+```{=html}
+<section class="fn-hero fn-hero--sage">
+  <img class="deco" src="../assets/svg/illustrations/megaphone.svg" alt="" style="width:clamp(56px,8vw,96px);right:5%;bottom:14%">
+  <span class="eyebrow">StellarGrok · the Leadership blog</span>
+  <h1 class="extrude">Leadership</h1>
+  <p class="lead">Teams, decisions, feedback and growing people.</p>
+</section>
+```

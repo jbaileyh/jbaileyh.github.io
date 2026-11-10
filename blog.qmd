@@ -1,0 +1,16 @@
+---
+title: "The blog"
+subtitle: "Everything, newest first. Filter by topic on the right."
+toc: false
+page-layout: full
+title-block-banner: false
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  page-size: 12
+  fields: [date, title, description, categories, reading-time]
+---

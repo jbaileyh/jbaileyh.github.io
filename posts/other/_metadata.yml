@@ -1,0 +1,14 @@
+# Every post in this folder belongs to the Other blog
+include-after-body:
+  text: |
+    <aside class="fn-more">
+      <div>
+        <span class="overline">Keep reading</span>
+        <strong>More from the Other blog</strong>
+      </div>
+      <div class="fn-more-links">
+        <a class="btn btn-lime" href="../../../sections/other.html">Other posts →</a>
+        <a class="btn btn-forest" href="../../../blog.html">All posts</a>
+      </div>
+    </aside>
+    <script>(function(){var a=document.querySelector('aside.fn-more'),m=document.querySelector('main.content');if(a&&m)m.appendChild(a);})();</script>

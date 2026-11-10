@@ -1,0 +1,35 @@
+---
+title: "Making decisions at the speed of the team"
+description: "Most decisions are two-way doors. Treat them that way and your team moves faster, and learns more."
+date: 2026-09-21
+categories: [Leadership, decisions]
+image: ../../../assets/svg/illustrations/megaphone.svg
+---
+
+The slowest teams I've worked with weren't short on talent. They were short on
+**permission**. Every choice waited for the one person who could make it.
+
+## Sort the door first
+
+```{mermaid}
+flowchart TD
+  Q[A decision lands on your desk] --> R{Easy to reverse?}
+  R -->|Yes: two-way door| S[Decide in the room.<br/>Tell people after.]
+  R -->|No: one-way door| T[Write it down.<br/>Get two other views.]
+  T --> U[Decide within a week]
+  S --> V[Review in a month]
+  U --> V
+```
+
+## Three habits that help
+
+1. **Name the door.** Say out loud whether this is reversible. It changes the energy in the room.
+2. **Set a decision date.** Open-ended discussions expand to fill the calendar.
+3. **Write the "why" in two sentences.** Future you will thank present you.
+
+> Speed comes from trust, and trust comes from seeing decisions explained.
+
+::: {.callout-important}
+## The trap
+"Let's take this offline" is often a one-way door in disguise. Agree who decides, and by when, before anyone leaves.
+:::

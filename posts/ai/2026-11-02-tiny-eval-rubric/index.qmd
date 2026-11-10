@@ -1,0 +1,66 @@
+---
+title: "A tiny rubric for evaluating LLM answers"
+description: "You don't need a framework to start evaluating model output. A spreadsheet-sized rubric and twenty lines of Python get you surprisingly far."
+date: 2026-11-02
+categories: [AI, Python, evaluation]
+image: ../../../assets/svg/illustrations/chip.svg
+jupyter: python3
+---
+
+```{python}
+#| include: false
+import sys; sys.path.insert(0, "../../../assets")
+import StellarGrok; StellarGrok.use()
+```
+
+Most teams wait too long to evaluate their LLM features. They're looking for the *right*
+framework when a small, honest rubric would already tell them most of what they need.
+
+## The loop
+
+```{mermaid}
+flowchart LR
+  A[Collect 30 real prompts] --> B[Generate answers]
+  B --> C{Score with rubric}
+  C -->|pass| D[Ship]
+  C -->|fail| E[Change prompt or model]
+  E --> B
+```
+
+## The rubric
+
+Three criteria, each scored 0–2. Keep it boring, keep it consistent.
+
+```{python}
+import pandas as pd
+
+scores = pd.DataFrame({
+    "variant":  ["Baseline", "Baseline", "Baseline", "New prompt", "New prompt", "New prompt"],
+    "criterion": ["Correct", "Grounded", "Concise"] * 2,
+    "score":    [1.2, 0.9, 1.6, 1.7, 1.5, 1.4],
+})
+scores.pivot(index="criterion", columns="variant", values="score")
+```
+
+## What changed
+
+```{python}
+#| label: fig-rubric
+#| fig-cap: "Average rubric score by criterion (0–2)."
+import matplotlib.pyplot as plt
+
+wide = scores.pivot(index="criterion", columns="variant", values="score")
+ax = wide.plot.bar(rot=0, width=0.7)
+ax.set_title("The new prompt wins on correctness and grounding")
+ax.set_xlabel("")
+ax.set_ylim(0, 2)
+ax.legend(title="")
+plt.show()
+```
+
+::: {.callout-tip}
+## Rule of thumb
+If every change "wins", your rubric isn't sensitive enough. Add a harder prompt or two.
+:::
+
+> Evaluate early, evaluate small, evaluate often.
